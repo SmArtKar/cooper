@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Таски</title>
+    <link rel="stylesheet" type="text/css" href="/static/modern_style.css">
+</head>
+
+<body>
+{% include 'patterns/modern_menu.html' %}
+<h1>Ваши задачи:</h1>
+{#{% include 'patterns/header.html' %}#}
+{#{% include 'patterns/menu.html' %}#}
+{% if len == 0 %}
+    <a href="/add_task"><button type="submit" class="edit-button" style="margin-top: 2.5em;">Создать задачу!</button></a>
+{% endif %}
+<br>
+<div>
+    {% for task in tasks %}
+          <a href="/task/{{  task.id }}">
+    <div class="task-card">
+    <div class="task-card-header">
+    <h1 class="task-card-text">{{  task.idea }}</h1>
+    <h2 class="task-card-from">От {{  task.author }}</h2>
+    </div>
+        <h2 class="task-about">{{  task.simple_about }}</h2>
+    </div></a>
+    {% endfor %}
+</div>
+
+{% include 'patterns/modern_footer.html' %}
+</html>

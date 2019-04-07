@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% include 'patterns/header.html' %}
+{#{% include 'patterns/login_menu.html' %}#}
+
+<style>
+    .formm {
+        position: relative;
+        display: block;
+        width: 30em;
+        margin-left: 45%;
+        margin-top: 7%;
+        z-index: 99;
+    }
+    body{
+        height: 50%;
+        width: 100%;
+    }
+</style>
+<body>
+        <div class="formm">
+            <form action="/u/login/" method="post" style="margin: auto; position: relative;">
+                {% csrf_token %}
+                <div class="Wrapper"><div class="input" style="margin-top: 2.5em;">
+                     <input required type="text" name="username" autocomplete="off" id="input" class="input-text"
+                            placeholder="Ник" style=" position: relative;">
+                </div></div>
+                <div class="Wrapper"><div class="input">
+                     <input required type="password" name="password" autocomplete="off" id="input"
+                            class="input-text" placeholder="Пароль" style=" position: relative;">
+{#                    <span class="floating-label">Your email address</span>#}
+                </div></div><a href="/u/recover_password" style="margin-left:10%;">Забыли пароль?</a>
+                <button type="submit" class="edit-button" style="margin-top: 3%">Войти</button>
+            </form>
+                <a href="/u/new_user"><button type="submit" class="signup-button">Регистрация</button></a>
+        </div>
+</body>

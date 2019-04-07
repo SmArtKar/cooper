@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Таски</title>
+    <link rel="stylesheet" type="text/css" href="/static/modern_style.css">
+</head>
+
+<body>
+{% include 'patterns/modern_menu.html' %}
+<h1>Ваши чаты:</h1>
+{#{% include 'patterns/header.html' %}#}
+{#{% include 'patterns/menu.html' %}#}
+{% if len == 0 %}
+    <a href="/add_task"><button type="submit" class="edit-button" style="margin-top: 2.5em;">Создать задачу!</button></a>
+{% endif %}
+<br>
+<a href="/create_chat" class="edit-button">Создать чат</a>
+<div>
+    {% for chat in chats %}
+          <a href="/chat/{{  chat.id }}">
+    <div class="chat-card">
+    <div class="chat-card-header">
+    <h1 class="chat-card-text">{{  chat.name }}</h1></a>
+    {% endfor %}
+</div>
+
+{% include 'patterns/modern_footer.html' %}
+</html>
